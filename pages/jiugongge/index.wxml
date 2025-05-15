@@ -1,0 +1,14 @@
+<view>
+  <lucky-grid
+    id="myLucky"
+    width="{{containerWidth}}px"
+    height="{{containerHeight}}px"
+    blocks="{{blocks}}"
+    prizes="{{prizes}}"
+    buttons="{{buttons}}"
+    default-style="{{defaultStyle}}"
+    bind:start="start"
+    bind:end="end"
+  />
+  <button bindtap="start">开始抽奖</button>
+</view>

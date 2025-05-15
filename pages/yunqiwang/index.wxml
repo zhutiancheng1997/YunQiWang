@@ -1,0 +1,64 @@
+<view style="position:relative; min-height:100vh;">
+  <view id="chouJiangComponent" wx:if="{{mode === 'wheel'}}">
+    <lucky-wheel
+      
+      id="myLucky"
+      width="700rpx"
+      height="700rpx"
+      blocks="{{wheel_data.blocks}}"
+      prizes="{{wheel_data.prizes}}"
+      buttons="{{wheel_data.buttons}}"
+      bindstart="start"
+      bindend="end"
+    />
+  </view>
+  
+  <view id="chouJiangComponent"  wx:if="{{mode === 'slot'}}" >
+    <slot-machine
+      
+      id="mySlot"
+      width="700rpx"
+      height="700rpx"
+      blocks="{{slot_data.blocks}}"
+      prizes="{{slot_data.prizes}}"
+      slots="{{slot_data.slots}}"
+      default-style="{{slot_data.defaultStyle}}"
+      default-config="{{slot_data.defaultConfig}}"
+      bind:end="slotEnd"
+    />
+    <lin-button class="left-bottom-btn" bindtap="start">
+      <lin-icon name="order" size="32" color="#0052d9" />
+    </lin-button>
+  </view>
+  
+  <view id="chouJiangComponent" wx:if="{{mode === 'grid'}}">
+    <lucky-grid
+      id="myGrid"
+      width="700rpx"
+      height="700rpx"
+      blocks="{{grid_data.blocks}}"
+      prizes="{{grid_data.prizes}}"
+      buttons="{{grid_data.buttons}}"
+      default-style="{{grid_data.defaultStyle}}"
+      bind:start="start"
+      bind:end="end"
+    />
+    <lin-button class="left-bottom-btn" bindtap="start">
+      <lin-icon name="order" size="32" color="#0052d9" />
+    </lin-button>
+  </view>
+  
+  <view>
+    <lin-icon name="order" size="64" color="#0052d9" class="left-bottom-btn switch-btn" bindtap="showMenu" />
+    <lin-icon name="edit" size="64" color="#0052d9" class="right-bottom-btn switch-btn" bindtap="goEdit" />
+  </view>
+  
+  <!-- 遮罩 -->
+  <view class="menu-mask" wx:if="{{showMenu}}" bindtap="hideMenu"></view>
+  <!-- 菜单栏 -->
+  <view class="menu-bar" wx:if="{{showMenu}}">
+    <view class="menu-item" data-mode="wheel" bindtap="chooseMode">🎡 转盘</view>
+    <view class="menu-item" data-mode="slot" bindtap="chooseMode">🎰 老虎机</view>
+    <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<view>
+  <slot-machine 
+    id="myLucky"
+    width="600rpx"
+    height="800rpx"
+    prizes="{{prizes}}"
+    slots="{{slots}}"
+    default-config="{{defaultConfig}}"
+    default-style="{{defaultStyle}}"
+    bind:end="end"
+  />
+  <button bindtap="start">开始抽奖</button>
+</view>

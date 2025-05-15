@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@lucky-canvas/mini": "^0.0.7",
+    "lin-ui": "^0.9.13",
+    "lucky-canvas": "^1.7.27",
+    "weui-miniprogram": "^1.5.6"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/yunqiwang/index",
+    "pages/roulette-list/index",
+    "pages/roulette-detail/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/example/index",
+    "pages/laohuji/index",
+    "pages/jiugongge/index",
+    "pages/liebiao/index",
+    "pages/edit-options/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+    
+  
+}

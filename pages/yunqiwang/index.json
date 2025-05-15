@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "lucky-wheel": "/miniprogram_npm/@lucky-canvas/mini/lucky-wheel/index",
+    "lucky-grid": "/miniprogram_npm/@lucky-canvas/mini/lucky-grid/index",
+    "slot-machine": "/miniprogram_npm/@lucky-canvas/mini/slot-machine/index",
+    "lin-button": "/miniprogram_npm/lin-ui/button/index",
+    "lin-icon": "/miniprogram_npm/lin-ui/icon/index"
+  },
+  "editPage": {
+    "usingComponents": {
+      "lin-input": "/miniprogram_npm/lin-ui/input/index",
+      "lin-button": "/miniprogram_npm/lin-ui/button/index",
+      "lin-icon": "/miniprogram_npm/lin-ui/icon/index"
+    }
+  }
+}

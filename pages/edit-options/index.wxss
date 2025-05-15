@@ -1,0 +1,20 @@
+.add-btn-full {
+  width: 100%;
+  height: 88rpx;
+  margin-top: 12rpx;
+  background: #f5f7fa;
+  color: #1890ff;
+  border: none;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  display: block;
+}
+
+.delete-icon-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 8rpx;
+}

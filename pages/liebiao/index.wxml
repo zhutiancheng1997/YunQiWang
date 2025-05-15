@@ -1,0 +1,57 @@
+<view class="container">
+  <!-- 头部导航 -->
+  <view class="header">
+    <view class="back-icon">
+      <image src="/images/back.png"></image>
+    </view>
+    <view class="title">创建转盘</view>
+    <view class="more-icon">
+      <image src="/images/more.png"></image>
+    </view>
+    <view class="record-icon">
+      <image src="/images/record.png"></image>
+    </view>
+  </view>
+
+  <!-- 主体内容 -->
+  <view class="content">
+    <!-- 转盘标题 -->
+    <view class="form-item">
+      <text class="label">转盘标题</text>
+      <input class="input" placeholder="请输入转盘标题" value="休息多长时间" />
+    </view>
+
+    <!-- 转盘选项 -->
+    <view class="form-item">
+      <view class="option-header">
+        <text class="option-label">转盘选项(共8个)</text>
+        <text class="weight-label">权重</text>
+      </view>
+      
+      <!-- 选项列表 -->
+      <view class="option-list">
+        <view class="option-item" wx:for="{{options}}" wx:key="index">
+          <view class="option-left">
+            <view class="radio {{item.selected ? 'selected' : ''}}"></view>
+            <text class="option-text">{{item.text}}</text>
+          </view>
+          <view class="option-right">
+            <view class="color-circle" style="background-color: {{item.color}};"></view>
+            <text class="weight-value">{{item.weight}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="button-group">
+      <button class="btn-add">添加新选项</button>
+      <button class="btn-batch-add">批量添加选项</button>
+    </view>
+
+    <!-- 其他设置 -->
+    <view class="other-settings">
+      <text>其他设置</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="container">
+  <button bindtap="gotoExample" type="primary">跳转到示例页面</button>
+  <button bindtap="gotoLaohuji" type="primary">跳转到老虎机页面</button>
+  <button bindtap="gotoJiugongge" type="primary">跳转到九宫格页面</button>
+  <view class="tabs">
+    <view class="tab" data-tab="hot" bindtap="onTabChange" wx:class="{active: currentTab === 'hot'}">热门转盘</view>
+    <view class="tab" data-tab="mine" bindtap="onTabChange" wx:class="{active: currentTab === 'mine'}">我的转盘</view>
+  </view>
+  <view class="create-btn" bindtap="onCreateRoulette">+ 创建新转盘</view>
+  <view class="roulette-list">
+    <block wx:for="{{currentTab === 'hot' ? hotRoulettes : myRoulettes}}" wx:key="id">
+      <view class="roulette-card">
+        <view class="roulette-title">{{item.title}}</view>
+        <view class="roulette-actions">
+          <button size="mini" bindtap="onShare" data-id="{{item.id}}">分享</button>
+          <button size="mini" bindtap="onEdit" data-id="{{item.id}}">编辑</button>
+          <button size="mini" bindtap="onDelete" data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view> 
