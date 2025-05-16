@@ -50,5 +50,19 @@ Page({
     wx.navigateTo({
       url: '/pages/jiugongge/index'
     })
+  },
+  goRouletteList() {
+    wx.switchTab({ url: '/pages/roulette-list/index' })
+  },
+  goDraw() {
+    wx.switchTab({ url: '/pages/yunqiwang/index' })
+  },
+  goMore() {
+    wx.switchTab({ url: '/pages/more/index' })
+  },
+  onShow() {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 0 }) // 0, 1, 2 分别对应tab顺序
+    }
   }
 }); 

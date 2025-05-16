@@ -1,18 +1,28 @@
-  <l-input label="标题" placeholder="请输入转盘标题" value="{{title}}" bind:input="onTitleInput" border="false" clearable />
+  <l-input label="标题" placeholder="请输入转盘标题" value="{{title}}" bind:lininput="onTitleInput" border="false" clearable />
   <block wx:for="{{options}}" wx:key="index">
     <view class="option-row">
-      <l-input label="抽奖项" label-layout="left" placeholder="请输入抽奖项" value="{{item}}" bind:input="onOptionInput" data-index="{{index}}" border="false" clearable >
+      <l-input label="抽奖项" label-layout="left" placeholder="请输入抽奖项" value="{{item}}" bind:lininput="onOptionInput" bind:input="onOptionInput" data-index="{{index}}" border="false" clearable >
         <view slot="right" class="delete-icon-area" data-index="{{index}}" bindtap="removeOption">
           <l-icon name="delete" />
         </view>
       </l-input>
     </view>
+    
     <block wx:if="{{index === options.length - 1}}">
-      <l-button class="add-btn-full" type="primary" block="true" data-index="{{index}}" bindtap="addOption">
-        <view style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;">
-        <l-icon name="add" />增加
+      
+        <view class="flex-center-in-row">
+          <l-button plain="{{true}}" size="large" block="true" data-index="{{index}}" bindtap="addOption">
+            <l-icon name="add" />增加
+          </l-button>
         </view>
-      </l-button>
+          <view class="flex-center-in-row" >
+            <l-button type="default" size="large" block="true" bindtap="onFinish">完成</l-button>
+          </view>
+        
     </block>
   </block>
+  
+
+   
+    
 

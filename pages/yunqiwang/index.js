@@ -3,7 +3,9 @@ Page({
   data: {
     mode: 'wheel', // 'wheel' 或 'slot'
     showMenu: false,
+    title: '测试title',
     wheel_data: {
+      
       blocks: [
         { padding: '10px', background: '#2E7DFF' }
       ],
@@ -141,5 +143,43 @@ Page({
   },
   goEdit() {
     wx.navigateTo({ url: '/pages/edit-options/index' })
+  },
+  setPrizeOptions({ title, options }) {
+    console.log(title)
+    // 更新转盘标题和奖项
+    const prizes = options.map(item => ({ background: '#fff7a2', fonts: [{ text: item }] }))
+    console.log(prizes)
+    this.setData({
+      'wheel_data.prizes': prizes,
+      'title': title || this.data.title
+    })
+  },
+  onShow() {
+    let title = wx.getStorageSync('wheel_title')
+    let wheelMap = wx.getStorageSync('wheel_map') || {}
+    if (typeof wheelMap === 'string') {
+      try { wheelMap = JSON.parse(wheelMap) } catch(e) { wheelMap = {} }
+    }
+    // 优先展示最新title
+    if (!title && Object.keys(wheelMap).length > 0) {
+      title = Object.keys(wheelMap)[Object.keys(wheelMap).length - 1]
+    }
+    if (title) {
+      this.setData({ title })
+      const options = wheelMap[title]
+      if (options && Array.isArray(options) && options.length) {
+        const prizes = options.map(item => ({ background: '#fff7a2', fonts: [{ text: item }] }))
+        this.setData({ 'wheel_data.prizes': prizes })
+      }
+    }
+  },
+  goRouletteList() {
+    wx.redirectTo({ url: '/pages/roulette-list/index' })
+  },
+  goDraw() {
+    wx.redirectTo({ url: '/pages/yunqiwang/index' })
+  },
+  goMore() {
+    wx.redirectTo({ url: '/pages/more/index' })
   }
 })

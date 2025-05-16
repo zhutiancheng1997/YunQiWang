@@ -1,5 +1,6 @@
 <view style="position:relative; min-height:100vh;">
   <view id="chouJiangComponent" wx:if="{{mode === 'wheel'}}">
+    <view class="draw-title">{{title}}</view>
     <lucky-wheel
       
       id="myLucky"
@@ -14,6 +15,7 @@
   </view>
   
   <view id="chouJiangComponent"  wx:if="{{mode === 'slot'}}" >
+    <view class="draw-title">{{title}}</view>
     <slot-machine
       
       id="mySlot"
@@ -32,6 +34,7 @@
   </view>
   
   <view id="chouJiangComponent" wx:if="{{mode === 'grid'}}">
+    <view class="draw-title">{{title}}</view>
     <lucky-grid
       id="myGrid"
       width="700rpx"
@@ -60,5 +63,21 @@
     <view class="menu-item" data-mode="wheel" bindtap="chooseMode">🎡 转盘</view>
     <view class="menu-item" data-mode="slot" bindtap="chooseMode">🎰 老虎机</view>
     <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+  </view>
+  
+  <!-- tabbar -->
+  <view class="tabbar">
+    <view class="tabbar-item" bindtap="goRouletteList">
+      <icon type="list" size="32" />
+      <text>列表</text>
+    </view>
+    <view class="tabbar-item active" bindtap="goDraw">
+      <icon type="success" size="32" />
+      <text>抽</text>
+    </view>
+    <view class="tabbar-item" bindtap="goMore">
+      <icon type="more" size="32" />
+      <text>更多</text>
+    </view>
   </view>
 </view>
