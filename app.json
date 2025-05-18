@@ -22,9 +22,6 @@
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
     "custom": true,
-    "color": "#888888",
-    "selectedColor": "#0052d9",
-    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/roulette-list/index",

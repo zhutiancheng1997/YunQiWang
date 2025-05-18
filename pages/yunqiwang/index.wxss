@@ -20,11 +20,19 @@
   right: 32rpx;
 }
 
+.center-bottom-btn {
+  position: fixed;
+  bottom: 400rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+}
+
 .menu-mask {
   position: fixed;
   left: 0; right: 0; top: 0; bottom: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 999;
+  
+  z-index: 10000;
 }
 .menu-bar {
   position: fixed;
@@ -32,17 +40,19 @@
   background: #fff;
   border-top-left-radius: 24rpx;
   border-top-right-radius: 24rpx;
-  z-index: 1000;
-  padding: 40rpx 0 60rpx 0;
+  z-index: 20000;
+  padding: 40rpx 0 40rpx 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .menu-item {
+   display: inline-block; /* 横向滚动时 */
   font-size: 36rpx;
   color: #2E7DFF;
   padding: 24rpx 0;
-  width: 80%;
+  width: 100%;
+  z-index: 20000;
   text-align: center;
   border-bottom: 1px solid #eee;
 }
@@ -64,31 +74,15 @@ lucky-grid {
   margin-top: 0;
 }
 
-.tabbar {
+.bottom-icon-row {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 110rpx;
-  background: #fff;
+  bottom: 280rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid #eee;
-  z-index: 9999;
-}
-.tabbar-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #888;
-  font-size: 28rpx;
-}
-.tabbar-item.active {
-  color: #0052d9;
-  font-weight: bold;
+  z-index: 1001;
 }
 

@@ -124,8 +124,20 @@ Page({
     }
   },
   end(event) {
+    const modeMap = { wheel: '转盘', slot: '老虎机', grid: '九宫格' }
+    const mode = this.data.mode
+    const result = event.detail && event.detail.fonts ? event.detail.fonts[0].text : ''
+    const logItem = {
+      type: modeMap[mode] || mode,
+      result,
+      time: new Date().toLocaleString()
+    }
+    let logs = wx.getStorageSync('logs') || []
+    logs.push(logItem)
+    if (logs.length > 20) logs = logs.slice(-20)
+    wx.setStorageSync('logs', logs)
     wx.showToast({
-      title: '恭喜你获得: ' + (event.detail && event.detail.fonts ? event.detail.fonts[0].text : ''),
+      title: '恭喜你获得: ' + result,
       icon: 'none',
       duration: 2000,
       mask: true
@@ -133,8 +145,20 @@ Page({
     console.log('中奖详情', event.detail)
   },
   slotEnd(event) {
+    const modeMap = { wheel: '转盘', slot: '老虎机', grid: '九宫格' }
+    const mode = this.data.mode
+    const result = event.detail && event.detail.fonts ? event.detail.fonts[0].text : ''
+    const logItem = {
+      type: modeMap[mode] || mode,
+      result,
+      time: new Date().toLocaleString()
+    }
+    let logs = wx.getStorageSync('logs') || []
+    logs.push(logItem)
+    if (logs.length > 20) logs = logs.slice(-20)
+    wx.setStorageSync('logs', logs)
     wx.showToast({
-      title: '老虎机中奖: ' + (event.detail && event.detail.fonts ? event.detail.fonts[0].text : ''),
+      title: '老虎机中奖: ' + result,
       icon: 'none',
       duration: 2000,
       mask: true
@@ -173,13 +197,7 @@ Page({
       }
     }
   },
-  goRouletteList() {
-    wx.redirectTo({ url: '/pages/roulette-list/index' })
-  },
-  goDraw() {
-    wx.redirectTo({ url: '/pages/yunqiwang/index' })
-  },
-  goMore() {
-    wx.redirectTo({ url: '/pages/more/index' })
+  showLog() {
+    wx.navigateTo({ url: '/pages/logs/logs' })
   }
 })

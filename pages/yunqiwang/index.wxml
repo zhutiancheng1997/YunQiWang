@@ -1,11 +1,11 @@
-<view style="position:relative; min-height:100vh;">
+<view style="position:relative">
   <view id="chouJiangComponent" wx:if="{{mode === 'wheel'}}">
     <view class="draw-title">{{title}}</view>
     <lucky-wheel
-      
       id="myLucky"
       width="700rpx"
       height="700rpx"
+
       blocks="{{wheel_data.blocks}}"
       prizes="{{wheel_data.prizes}}"
       buttons="{{wheel_data.buttons}}"
@@ -17,7 +17,6 @@
   <view id="chouJiangComponent"  wx:if="{{mode === 'slot'}}" >
     <view class="draw-title">{{title}}</view>
     <slot-machine
-      
       id="mySlot"
       width="700rpx"
       height="700rpx"
@@ -28,9 +27,11 @@
       default-config="{{slot_data.defaultConfig}}"
       bind:end="slotEnd"
     />
-    <lin-button class="left-bottom-btn" bindtap="start">
-      <lin-icon name="order" size="32" color="#0052d9" />
+    
+    <lin-button plain="{{true}}" class="center-bottom-btn" bindtap="start">
+      <lin-icon name="video" size="32" color="#0052d9" />start
     </lin-button>
+    
   </view>
   
   <view id="chouJiangComponent" wx:if="{{mode === 'grid'}}">
@@ -46,38 +47,37 @@
       bind:start="start"
       bind:end="end"
     />
-    <lin-button class="left-bottom-btn" bindtap="start">
-      <lin-icon name="order" size="32" color="#0052d9" />
-    </lin-button>
+  
   </view>
   
-  <view>
-    <lin-icon name="order" size="64" color="#0052d9" class="left-bottom-btn switch-btn" bindtap="showMenu" />
-    <lin-icon name="edit" size="64" color="#0052d9" class="right-bottom-btn switch-btn" bindtap="goEdit" />
+   <!-- 菜单栏 -->
+   <view wx:if="{{showMenu}}">
+   
+    <view class="menu-mask" bindtap="hideMenu"></view>
+    <scroll-view class="menu-bar" scroll-y="true" style="height: 200rpx;">
+      <view class="menu-item" data-mode="wheel" bindtap="chooseMode">🎡 转盘</view>
+      <view class="menu-item" data-mode="slot" bindtap="chooseMode">🎰 老虎机</view>
+      <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+        <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+          <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+            <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+              <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+    </scroll-view>
   </view>
   
-  <!-- 遮罩 -->
-  <view class="menu-mask" wx:if="{{showMenu}}" bindtap="hideMenu"></view>
-  <!-- 菜单栏 -->
-  <view class="menu-bar" wx:if="{{showMenu}}">
-    <view class="menu-item" data-mode="wheel" bindtap="chooseMode">🎡 转盘</view>
-    <view class="menu-item" data-mode="slot" bindtap="chooseMode">🎰 老虎机</view>
-    <view class="menu-item" data-mode="grid" bindtap="chooseMode">🀄 九宫格</view>
+  <view class="bottom-icon-row">
+    <l-button type="default" shape="circle" size="large" class="switch-btn" bindtap="showMenu">
+      <lin-icon name="order" size="36" color="#0052d9" />
+    </l-button>
+    <l-button type="default" shape="circle" size="large" class="switch-btn" bindtap="showLog">
+      <lin-icon name="time" size="36" color="#0052d9" />
+    </l-button>
+    <l-button type="default" shape="circle" size="large" class="switch-btn" bindtap="goEdit">
+      <lin-icon name="edit" size="36" color="#0052d9" />
+    </l-button>
   </view>
   
-  <!-- tabbar -->
-  <view class="tabbar">
-    <view class="tabbar-item" bindtap="goRouletteList">
-      <icon type="list" size="32" />
-      <text>列表</text>
-    </view>
-    <view class="tabbar-item active" bindtap="goDraw">
-      <icon type="success" size="32" />
-      <text>抽</text>
-    </view>
-    <view class="tabbar-item" bindtap="goMore">
-      <icon type="more" size="32" />
-      <text>更多</text>
-    </view>
-  </view>
+  
+ 
+  
 </view>

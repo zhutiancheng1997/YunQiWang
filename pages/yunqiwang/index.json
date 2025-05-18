@@ -4,7 +4,10 @@
     "lucky-grid": "/miniprogram_npm/@lucky-canvas/mini/lucky-grid/index",
     "slot-machine": "/miniprogram_npm/@lucky-canvas/mini/slot-machine/index",
     "lin-button": "/miniprogram_npm/lin-ui/button/index",
-    "lin-icon": "/miniprogram_npm/lin-ui/icon/index"
+    "lin-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "l-tab-bar": "/miniprogram_npm/lin-ui/tab-bar/index",
+    "l-mask": "/miniprogram_npm/lin-ui/mask/index"
   },
   "editPage": {
     "usingComponents": {
